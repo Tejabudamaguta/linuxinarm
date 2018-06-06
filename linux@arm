@@ -1,0 +1,188 @@
+Linux@arm
+
+wireless networks 
+if password says wrong 
+go to passwords and keys and double click Network secret for AccessNG/802-1x/password key. to edit 
+
+sites available for home direcoties
+
+euhpc, euhpc2, nahpc, nahpc2, nahpc_scratch, blr_scratch, oulu, budapest, galway, munich, shanghai, 
+euhpc_scratch, cambirdge, israel , trondheim, lund, sophia, sheffield, grenoble, taipei, loughborough
+
+
+ARM vpn 
+
+user needs to be member of linuxonlaptoppoc
+
+hibernate linux laptop 
+
+sudo systemctl hibernate 
+
+standby 
+
+sudo systemctl standby
+
+
+screen saver is not changable in arms linux
+it pops after 30 mins of inactivity 
+
+Screensaver Lock
+The screen will lock after 30 minutes of inactivity with 1 minute of grace delay.
+This parameter is enforced and cannot be changed by users.
+You can use these Keyboard short cuts to Lock the screen: Ctrl+Alt+L
+
+
+Thunderbird (KB0013408) and Evolution (KB0013005)
+
+
+
+skype client
+
+ sudo apt install skypeforlinux
+
+
+software and applications update
+
+sudo apt update
+sudo apt upgrade
+
+printers
+
+Go to File > Print
+
+
+Linux vpn connectivity issues
+
+KB0013523-only full time employee can connect to vpn using command line
+
+
+creating a softlink 
+
+ln -s /usr/local/pulse/.pulse_Connections.txt ~/.pulse_secure/pulse/
+
+Pulse Secure graphical interface is not starting
+
+The graphical interface can be started with the terminal. This can help to find out what is wrong.
+
+Open a terminal and type below command (I am assuming you are using bash):
+
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/pulse
+
+/usr/local/pulse/pulseUi
+
+I have below error what should I do?
+
+Your machine is not recognised as an ARM IT built machine. Try to restart it first
+
+
+firewall for arm 
+firewalld
+Network awareness is done by script 02firewalld in folder /etc/NetworkManager/dispatcher.d/
+
+
+
+
+
+firewalld commands
+
+Useful firewalld command
+
+ 
+
+To know in which state the firewall is:
+
+sudo firewall-cmd --state
+
+Example:
+
+fraiar01@e112542-lin:~$ sudo firewall-cmd --state
+running
+
+To know in which zone all interfaces are set:
+
+sudo firewall-cmd --get-active-zones
+
+Example:
+
+fraiar01@e112542-lin:~$ sudo firewall-cmd --get-active-zones
+drop
+interfaces: tun0 wlp3s0
+trusted
+interfaces: enp0s31f6
+
+To know in which zone an interface is set:
+
+sudo firewall-cmd --get-zone-of-interface="interface name"
+
+Example:
+
+fraiar01@e112542-lin:~$ sudo firewall-cmd --get-zone-of-interface=enp0s31f6
+trusted
+
+Stop the firewall
+
+sudo systemctl stop firewalld
+
+Example:
+
+fraiar01@e112542-lin:~$ sudo systemctl stop firewalld
+fraiar01@e112542-lin:~$ sudo firewall-cmd --state
+not running
+
+Restart the firewall
+
+sudo systemctl restart firewalld
+
+Example:
+
+fraiar01@e112542-lin:~$ sudo systemctl restart firewalld
+fraiar01@e112542-lin:~$ sudo firewall-cmd --state
+running
+
+Reload firewall rules
+
+sudo firewall-cmd --reload
+
+Example:
+
+fraiar01@e112542-lin:~$ sudo firewall-cmd --reload
+success 
+
+Initial passphrase setup-----$ sudo lukspwd
+Changing existing passphrase--------$ sudo lukspwd -p
+Adding a new passphrase----------$ sudo lukspwd -a -p
+never modify slot 0 of passphrase
+Forgotten passphrase-------foreman OTP
+
+
+
+
+Emails and Calendar on Linux with Thunderbird
+KB0013408
+
+
+KB0014038-cups printers
+
+
+
+foreman how to complete guide
+
+https://projects.theforeman.org/projects/foreman/wiki/Howtos
+
+
+
+CentOS mirror 	http://mirror.geo.arm.com/centos/$major.$minor/os/$arch 	Red Hat 	CentOS 5.11, CentOS 6.6, CentOS 6.9, CentOS 7.2.1511 [DO NOT USE], CentOS Linux 7.2.1511, CentOS Linux 7.4.1708, and CentOS Linux 7.5.1804 [DO NOT USE] 	
+CoreOS mirror 	http://$release.release.core-os.net 	CoreOS 		
+Debian mirror 	http://mirror.geo.arm.com/debian 	Debian 	Debian 7.11, Debian 8.5, Debian 8.6, Debian 8.7, Debian 8.8, Debian 8.9, and Debian 9.3 [DO NOT USE] 	
+Fedora Atomic mirror 	http://dl.fedoraproject.org/pub/alt/atomic/stable/Cloud_Atomic/$arch/os/ 	Red Hat 		
+RHEL Pegas aarch64 mirror 	http://si-b6-1.euhpc.arm.com/rhel/7.4/server/aarch64/ 	Red Hat 	RHEL Pegas [aarch64 ONLY] 	
+RHEL mirror 	http://mirror.geo.arm.com/rhel/$major.$minor/server/$arch 	Red Hat 	RHEL 5.11, RHEL 5.8 [DO NOT USE], RHEL 6.6, RHEL 6.7 [DO NOT USE], RHEL 6.9, RHEL 7.1 [DO NOT USE], RHEL 7.2, RHEL 7.3, RHEL 7.4, and RHEL 7.5 	
+Ubuntu mirror 	http://mirror.geo.arm.com/ubuntu 	Debian 	Ubuntu 12.04, Ubuntu 14.04, Ubuntu 16.04, Ubuntu 16.04 HWE, Ubuntu 17.04 [DO NOT USE], and Ubuntu 18.04 [DO NOT USE] 	
+Ubuntu ports 	http://mirror.geo.arm.com/ubuntu-ports 	Debian 	Ubuntu 14.04, Ubuntu 16.04, Ubuntu 16.04 HWE, and Ubuntu 18.04 [DO NOT USE] 	
+Displaying all 8 entries
+
+
+
+
+
+
